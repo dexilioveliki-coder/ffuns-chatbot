@@ -27,7 +27,9 @@ def load_index():
     Settings.llm = Groq(model="llama-3.1-70b-versatile", api_key=groq_key)
     
     # Učitaj sve fajlove iz data/ foldera
-    documents = SimpleDirectoryReader("data").load_data()
+    # Umesto stare linije, stavi ovu:
+documents = SimpleDirectoryReader("./data", required_exts=[".md"]).load_data()
+
     
     # Kreiraj indeks (RAG)
     index = VectorStoreIndex.from_documents(documents)
