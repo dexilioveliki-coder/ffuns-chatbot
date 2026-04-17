@@ -15,13 +15,14 @@ if not groq_key:
     st.error("Groq API key nije podešen. Dodaj ga u Settings > Secrets na Hugging Face Spaces.")
     st.stop()
 
+#
 # Podešavanja (jednom)
 @st.cache_resource(show_spinner=False)
 def load_index():
     # Embeddings (besplatno na HF, dobar za srpski)
     Settings.embed_model = HuggingFaceEmbedding(model_name="intfloat/multilingual-e5-large")
     
-    # LLM preko Groq (brz i besplatan tier)
+    # LLM preko Groq
     Settings.llm = Groq(model="llama-3.1-70b-versatile", api_key=groq_key)
     
     # Učitaj sve fajlove iz data/ foldera
