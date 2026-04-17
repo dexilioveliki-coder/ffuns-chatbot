@@ -1,0 +1,8 @@
+      - name: Push to Hugging Face
+        uses: nateraw/huggingface-sync-action@v0.0.5
+        with:
+          github_repo_id: 'dexilioveliki-coder/ffuns-chatbot'
+          huggingface_repo_id: 'dexilio/ffuns-chatbot'
+          hf_token: ${{ secrets.HF_TOKEN }}
+          repo_type: 'space'
+          space_sdk: 'gradio'
