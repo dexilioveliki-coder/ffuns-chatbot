@@ -1,18 +1,19 @@
 import streamlit as st
+import streamlit as st
+import os
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.llms.groq import Groq
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-import os
 
-# Naslov app-a
+# Naslov
 st.set_page_config(page_title="FFUNS Chatbot", page_icon="📚")
 st.title("📚 FFUNS AI Asistent")
 st.caption("Pitaj sve o upisu, studijskim programima, rokovima i pravilima na Filozofskom fakultetu u Novom Sadu")
 
-# Učitaj Groq API key iz Secrets (ne piši ga ovde!)
+# Groq API key
 groq_key = os.getenv("GROQ_API_KEY")
 if not groq_key:
-    st.error("Groq API key nije podešen. Dodaj ga u Settings > Secrets na Hugging Face Spaces.")
+    st.error("❌ Groq API key nije podešen. Dodaj ga u Settings → Secrets na Hugging Face Spaces.")
     st.stop()
 
 #
